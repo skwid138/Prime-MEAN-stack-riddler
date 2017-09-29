@@ -1,3 +1,7 @@
 <section ng-init="vrc.getRiddles()">
-
+    <h2>Riddle</h2>
+    <div ng-repeat="riddle in vrc.listOfRiddles.riddles">
+    <h4>Creator: {{riddle.creator}}</h4>
+    <p></p>
+    </div>
 </section>

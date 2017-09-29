@@ -6,6 +6,7 @@ myApp.service('RiddlesService', function ($http) {
     var self = this;
 
     self.total = 0;
+    self.riddleList = {riddles: []};
 
     // POST route to server
     self.postRiddle = function (param) {
@@ -26,11 +27,10 @@ myApp.service('RiddlesService', function ($http) {
             method: 'GET',
             url:'/riddles'
         }).then(function(response) {
-            self.riddleList = response.data;
+            self.riddleList.riddles = response.data;
             console.log('self.riddleList ->', self.riddleList);
-            self.total = self.riddleList.length;
+            self.total = self.riddleList.riddles.length;
             console.log('total ->', self.total);
-            
         }); // end http
     }; // end getRiddles
 }); // end controller
