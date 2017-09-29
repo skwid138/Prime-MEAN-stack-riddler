@@ -4,5 +4,9 @@
 myApp.controller('ViewRiddleController', function (RiddlesService) {
     console.log('in ViewRiddleController');
     var vm = this;
+    // GET on page load
+    vm.getRiddles = function() {
+        RiddlesService.getRiddles();
+    } // end getRiddles
 
 }); // end controller

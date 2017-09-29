@@ -15,10 +15,22 @@ myApp.service('RiddlesService', function ($http) {
             data: param
         }).then(function (response) {
             console.log('POST response ->', response);
+            self.getRiddles();
         });
     } // end postRiddle
 
     // get route to server
-    
-
-});
+    self.getRiddles = function () {
+        console.log('in getRiddles');
+        $http({
+            method: 'GET',
+            url:'/riddles'
+        }).then(function(response) {
+            self.riddleList = response.data;
+            console.log('self.riddleList ->', self.riddleList);
+            self.total = self.riddleList.length;
+            console.log('total ->', self.total);
+            
+        }); // end http
+    }; // end getRiddles
+}); // end controller
