@@ -1,6 +1,13 @@
-var myApp = angular.module('myApp', []);
+var myApp = angular.module('myApp', ['ngRoute']);
 
-myApp.controller('ControllerName', function ($http) {
+myApp.config(function ($routeProvider) {
     console.log('ControllerName in use');
-    var vm = this;
-})
+
+    $routeProvider.when('/addRiddle', {
+        templateUrl: 'views/addRiddle.html',
+        controller: 'AddRiddleController as arc'
+    }).when('/viewRiddle', {
+        templateUrl: 'views/viewRiddle',
+        controller: 'ViewRiddleController as vrc'
+    }).otherwise('/');
+});

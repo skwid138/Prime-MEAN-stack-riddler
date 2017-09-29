@@ -5,17 +5,22 @@ var path = require('path');
 var port = process.env.PORT || 3000;
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhose:27017/riddleDB');
+mongoose.connect('mongodb://localhost:27017/riddleDB');
 //creates Database
-var indexRouter = require('./routes/index');
 
+//routes
+var indexRouter = require('./routes/index');
+var riddleRouter = require('./routes/riddleroutes');
+
+// uses
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
-// this MUST be the last route
-// only for removing the #! and allowing the refresh to function
+// routes
 app.use('/', indexRouter);
+app.use('/riddles', riddleRouter);
 
+//listening
 app.listen(port, function () {
-    console.log('on 3003');
+    console.log('listening on', port);
 });
