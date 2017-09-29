@@ -5,4 +5,4 @@ myApp.controller('ViewRiddleController', function (RiddlesService) {
     console.log('in ViewRiddleController');
     var vm = this;
 
-});
+}); // end controller

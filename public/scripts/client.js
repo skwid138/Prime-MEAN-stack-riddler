@@ -9,5 +9,5 @@ myApp.config(function ($routeProvider) {
     }).when('/viewRiddle', {
         templateUrl: 'views/viewRiddle',
         controller: 'ViewRiddleController as vrc'
-    }).otherwise('/');
+    }).otherwise('/addRiddle');
 });
